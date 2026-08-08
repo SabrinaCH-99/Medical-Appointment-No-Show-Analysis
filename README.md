@@ -33,14 +33,36 @@ Through this analysis, I aim to uncover data-driven patterns that can help healt
 ### 3. Data Visualization
 * **Multi-variable Plotting:** Developed visualizations to illustrate the interplay between patient adherence (No-show rates) and key predictors, including Age, Waiting Duration, and SMS status.
 
+### 4. Predictive Modeling & Machine Learning
+* **Feature Engineering & Selection:** Processed categorical features using One-Hot Encoding and scaled numerical variables to optimize model performance. Managed class imbalance (as show-ups heavily outweigh no-shows 8:2) using class-weight adjustments.
+* **Model Evaluation:** Implemented and compared multiple algorithms, utilizing Logistic Regression, alongside K-Nearest Neighbors, Decision Trees, and Random Forests to maximize predictive power.
+* **Best Performing Model**: **KNN (with an adjusted classification threshold of 0.2)** achieved the best overall balance for this imbalanced dataset.
+* **Performance Metrics**: Achieved an **AUC-ROC score of 0.72** and a **recall of 0.80** for the no-show class. While lowering the threshold to 0.2 successfully captured 80% of actual no-shows (High Recall), it decreased the precision to **0.31**. 
 
 ## Future Work & Development 
-* Statistical Modeling (Logistic Regression): Beyond exploratory analysis, I plan to develop a Logistic Regression model to quantify the odds ratio of no-shows for each risk factor, allowing for more precise predictions of patient behavior.
-* Predictive Analysis: Implementing machine learning algorithms to build a predictive tool that flags high-risk appointments in real-time, enabling proactive interventions.
+1. Behavioral Segmentation (New vs. Frequent Patients):
+As exploratory analysis indicates distinct behavior patterns between frequent visitors and new patients, future iterations will experiment with segmenting the dataset to build separate specialized models for these two patient cohorts.
+
+2. Refining Time-Based Features:
+
+Further optimize temporal variables by analyzing the impact of specific days of the week (e.g., Mondays vs. Fridays) on no-show behaviors, capturing potential weekly clinical patterns.
+
+3. Feature Isolation for Baseline Patient Behavior:
+
+Conduct an ablation study by removing intervention features like SMS_received to evaluate the predictive power of a patient’s intrinsic behavioral characteristics alone.
+
+4. Advanced Algorithm Exploration:
+
+Transition from basic models to advanced tree-based ensembles such as XGBoost and LightGBM, leveraging hyperparameter tuning to better capture complex, non-linear feature interactions.
+
+5. Robust Resampling for Class Imbalance:
+
+Move beyond post-training threshold adjustments by implementing advanced resampling techniques (e.g., SMOTE or ADASYN) and utilizing class weights during the training phase to improve minority class recognition.
+
 
 ## Tech Stack
 * **Language:** Python 3.x
-* **Libraries:** Pandas, NumPy, Matplotlib
+* **Libraries:** Pandas, NumPy, Matplotlib, Scikit-learn
 
 
 ## Data Source
