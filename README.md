@@ -40,24 +40,15 @@ Through this analysis, I aim to uncover data-driven patterns that can help healt
 * **Performance Metrics**: Achieved an **AUC-ROC score of 0.72** and a **recall of 0.80** for the no-show class. While lowering the threshold to 0.2 successfully captured 80% of actual no-shows (High Recall), it decreased the precision to **0.31**. 
 
 ## Future Work & Development 
-1. Behavioral Segmentation (New vs. Frequent Patients):
-As exploratory analysis indicates distinct behavior patterns between frequent visitors and new patients, future iterations will experiment with segmenting the dataset to build separate specialized models for these two patient cohorts.
+**1. Behavioral Segmentation (New vs. Frequent Patients):** Driven by exploratory insights showing significant behavioral variance within the frequent-visitor cohort, future iterations will test dataset segmentation to construct tailored, predictive models for both sub-populations.
 
-2. Refining Time-Based Features:
+**2. Refining Time-Based Features:** Further optimize temporal variables by analyzing the impact of specific days of the week (e.g., Mondays vs. Saturdays) on no-show behaviors, capturing potential weekly clinical patterns.
 
-Further optimize temporal variables by analyzing the impact of specific days of the week (e.g., Mondays vs. Fridays) on no-show behaviors, capturing potential weekly clinical patterns.
+**3. Feature Isolation for Baseline Patient Behavior:** Conduct an ablation study by **removing intervention features like SMS_received** to evaluate the predictive power of a patient’s intrinsic behavioral characteristics alone.
 
-3. Feature Isolation for Baseline Patient Behavior:
+**4. Try More Powerful Algorithms:** (XGBoost and LightGBM)
 
-Conduct an ablation study by removing intervention features like SMS_received to evaluate the predictive power of a patient’s intrinsic behavioral characteristics alone.
-
-4. Advanced Algorithm Exploration:
-
-Transition from basic models to advanced tree-based ensembles such as XGBoost and LightGBM, leveraging hyperparameter tuning to better capture complex, non-linear feature interactions.
-
-5. Robust Resampling for Class Imbalance:
-
-Move beyond post-training threshold adjustments by implementing advanced resampling techniques (e.g., SMOTE or ADASYN) and utilizing class weights during the training phase to improve minority class recognition.
+**5. Better Ways to Handle Class Imbalance:** Although class weights were already adjusted during training to help the model learn from the minority class, the dataset remains highly imbalanced. In the next step, experiment with advanced resampling techniques like SMOTE (generating synthetic data for no-show cases) to see if it further boosts performance.
 
 
 ## Tech Stack
